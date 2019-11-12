@@ -12,5 +12,6 @@ class Question
   def correct? (proposed_answer)
     @answer.to_i == proposed_answer.to_i
   end
+
 end
 

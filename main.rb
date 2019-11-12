@@ -1,8 +1,6 @@
-require ('./questions')
-require ('./players')
+require ('./question')
+require ('./player')
 require ('./game')
-require ('./turn')
-
+require 'colorize'
 game = Game.new
-
 game.start

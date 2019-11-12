@@ -3,6 +3,7 @@ class Game
     @player1 = Player.new('Player 1')
     @player2 = Player.new('Player 2')
   end
+  
   def start
     puts "--------GAME START--------"
     while @player1.alive? && @player2.alive?
@@ -14,13 +15,13 @@ class Game
       end
     end
     winner = find_winner
-    puts "\n--------GAME OVER--------\n #{winner.name} wins with a score of #{winner.lives}/3. \nGood Bye!"
+    puts "\n--------GAME OVER--------\n #{winner.name} wins with a score of #{winner.lives}/3. \nGood Bye!".red
   end
 
   def turn(current_player)
     puts "\n--------NEW TURN--------"
     question =  Question.new
-    puts "#{current_player.name}: #{question.text}"
+    puts "#{current_player.name}: #{question.text}".blue
     player_answer = $stdin.gets.chomp
     if question.correct? player_answer
       puts '*** CORRECT ***'
@@ -31,7 +32,8 @@ class Game
   end
 
   def print_score
-    puts "--CURRENT SCORE-- #{@player1.name}: #{@player1.lives}/3 vs. #{@player2.name}: #{@player2.lives}/3"
+    puts @player1.score
+    puts "--CURRENT SCORE-- #{@player1.score} vs. #{@player2.score}".yellow
   end
   
   def find_winner
@@ -40,9 +42,6 @@ class Game
     else
       winner = @player2
     end
-
   end
-
-
 end
 

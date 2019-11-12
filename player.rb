@@ -12,4 +12,8 @@ class Player
   def alive?
     self.lives > 0
   end
+
+  def score
+   "#{self.name}: #{self.lives}/3"
+  end
 end
